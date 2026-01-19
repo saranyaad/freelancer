@@ -1,0 +1,363 @@
+/* Header.css - Ultra Modern & Attractive */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 
+              0 2px 8px rgba(108, 99, 255, 0.12);
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(108, 99, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
+              0 4px 12px rgba(108, 99, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Logo with Gradient & Sparkle Animation */
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #6c63ff 0%, #a084e8 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 8px rgba(108, 99, 255, 0.3));
+}
+
+.logo::before {
+  content: '✨';
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  animation: sparkle 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.7;
+    transform: translateY(-55%) scale(1.15) rotate(90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1.3) rotate(180deg);
+  }
+  75% {
+    opacity: 0.7;
+    transform: translateY(-45%) scale(1.15) rotate(270deg);
+  }
+}
+
+.logo:hover {
+  transform: scale(1.08) translateY(-2px);
+  filter: drop-shadow(0 4px 16px rgba(108, 99, 255, 0.5));
+}
+
+.logo:active {
+  transform: scale(1.02);
+}
+
+/* Navigation with Floating Hover Effects */
+.nav {
+  display: flex;
+  align-items: center;   /* Vertically align nav items */
+  gap: 32px;             /* Balanced spacing */
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  font-size: 17px;
+  color: #6c63ff;        /* Matches logo */
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #6c63ff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #4a43c4;         /* Hover color */
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Auth Buttons Container */
+.auth-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Login Button - Glass Morphism Effect */
+.login-btn {
+  padding: 11px 26px;
+  border-radius: 12px;
+  border: 2px solid rgba(108, 99, 255, 0.25);
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  color: #334155;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.15), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.login-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.login-btn:hover {
+  background: rgba(108, 99, 255, 0.12);
+  border-color: rgba(108, 99, 255, 0.45);
+  transform: translateY(-3px);
+  color: #6c63ff;
+}
+
+.login-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Signup Button - Vibrant Gradient with Glow */
+.signup-btn {
+  padding: 11px 26px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6c63ff 0%, #a084e8 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: buttonGlow 2.5s ease-in-out infinite;
+}
+
+.signup-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, #6c63ff, #a084e8, #ec4899, #6c63ff);
+  background-size: 300% 300%;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  animation: gradientRotate 3s ease infinite;
+  transition: opacity 0.4s ease;
+}
+
+.signup-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.signup-btn:hover::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0.3;
+}
+
+.signup-btn:hover {
+  background: linear-gradient(135deg, #574fd2 0%, #8a7ae8 100%);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.signup-btn:hover::before {
+  opacity: 1;
+}
+
+.signup-btn:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+@keyframes gradientRotate {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(108, 99, 255, 0.6),
+                0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .header {
+    padding: 16px 32px;
+  }
+  .nav {
+    gap: 24px;
+  }
+  .nav-link {
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 24px;
+  }
+  .logo {
+    font-size: 24px;
+  }
+  .logo::before {
+    left: -30px;
+    font-size: 18px;
+  }
+  .nav {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    gap: 20px;
+  }
+  .logo {
+    align-self: center;
+    margin-bottom: 5px;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+  }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    background: rgba(108, 99, 255, 0.06);
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  .nav-link::after {
+    display: none;
+  }
+  .nav-link:hover {
+    background: rgba(108, 99, 255, 0.15);
+    transform: translateY(0) scale(1.02);
+  }
+  .auth-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .login-btn,
+  .signup-btn {
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Smooth animations preference */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #111;
+    border-bottom: 1px solid rgba(108, 99, 255, 0.15);
+  }
+  .nav-link {
+    color: #a084e8;
+  }
+  .nav-link:hover {
+    color: #ec4899;
+  }
+  .login-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-color: rgba(108, 99, 255, 0.35);
+  }
+  .signup-btn {
+    background: linear-gradient(135deg, #574fd2 0%, #8a7ae8 100%);
+    color: #fff;
+  }
+}
