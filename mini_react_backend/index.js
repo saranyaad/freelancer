@@ -11,7 +11,7 @@ const PORT = 5000;
 // ✅ Connect to MongoDB Atlas
 mongoose
   .connect(
-    "mongodb+srv://SARANYA:saran93445@cluster0.c1dwxep.mongodb.net/miniApp?retryWrites=true&w=majority",
+    "process.env.MONGO_URI",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
